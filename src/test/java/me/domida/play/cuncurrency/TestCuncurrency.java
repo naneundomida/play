@@ -22,7 +22,7 @@ public class TestCuncurrency {
 
     @Test
     void notDeamonThreadPoolTest() throws NoSuchAlgorithmException {
-        ExecutorService executorService = Executors.newFixedThreadPool(10);
+        ExecutorService executorService = Executors.newFixedThreadPool(10, Executors.defaultThreadFactory());
         for (int i = 0; i < 10; i++) {
             int randomMiliSecond = Math.abs(SecureRandom.getInstanceStrong().nextInt() % 10000);
             executorService.submit(() -> {
