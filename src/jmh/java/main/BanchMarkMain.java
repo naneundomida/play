@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 public class BanchMarkMain {
 
-    @Fork(value = 1, warmups = 1, jvmArgs = {"-Xms4G", "-Xmx4G"})
+//    @Fork(value = 1, warmups = 1, jvmArgs = {"-Xms4G", "-Xmx4G"})
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
     @OutputTimeUnit(TimeUnit.MILLISECONDS)

@@ -33,7 +33,7 @@ class TestCompletableFuture {
 
     @Test
     void simpleCompletableFutureTest() {
-        Shop shop = new Shop();
+        Shop shop = new Shop("test");
         Future<Double> favoriteProduct = shop.getPriceAsync("my favorite product");
 
         try {
@@ -50,7 +50,7 @@ class TestCompletableFuture {
 
     @Test
     void simpleCompletableFutureErrorPropagationTest() {
-        Shop shop = new Shop();
+        Shop shop = new Shop("test");
         Future<Double> product = shop.getPriceErrorAsync("my favortie product");
         System.out.println(product.isDone());
         assertThrows(ExecutionException.class, () -> product.get());
@@ -67,7 +67,7 @@ class TestCompletableFuture {
 
     @Test
     void supplyAyncFutureTest() {
-        Shop shop = new Shop();
+        Shop shop = new Shop("test");
         Future<Double> product = shop.getSupplyAsync("my favorite product");
 
         try {

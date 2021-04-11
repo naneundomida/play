@@ -1,12 +1,22 @@
 package me.domida.play.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 
+@Getter
+@Setter
 public class Shop {
 
     Random random = new Random();
+    String name;
+
+    public Shop(String name) {
+        this.name = name;
+    }
 
     public double getPrice(String product) {
         return calculatePrice(product);
