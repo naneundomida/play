@@ -64,4 +64,19 @@ class TestCompletableFuture {
         }
         assertThat(product.isDone()).isTrue();
     }
+
+    @Test
+    void supplyAyncFutureTest() {
+        Shop shop = new Shop();
+        Future<Double> product = shop.getSupplyAsync("my favorite product");
+
+        try {
+            Double aDouble = product.get();
+            assertThat(aDouble).isNotNull();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
 }

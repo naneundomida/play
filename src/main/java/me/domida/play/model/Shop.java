@@ -12,6 +12,10 @@ public class Shop {
         return calculatePrice(product);
     }
 
+    public Future<Double> getSupplyAsync(String product) {
+        return CompletableFuture.supplyAsync(() -> calculatePrice(product));
+    }
+
     public Future<Double> getPriceAsync(String product) {
         CompletableFuture<Double> futurePrice = new CompletableFuture<>();
         new Thread(() -> {

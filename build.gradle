@@ -2,6 +2,13 @@ plugins {
     id 'org.springframework.boot' version '2.4.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id "me.champeau.gradle.jmh" version "0.5.3"
+}
+
+jmh {
+    fork = 1
+    warmupIterations = 1
+    iterations = 1
 }
 
 group = 'me.domida'
@@ -19,6 +26,8 @@ repositories {
 }
 
 dependencies {
+    implementation group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.29'
+    testImplementation group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.29'
     implementation 'org.springframework.boot:spring-boot-starter'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
